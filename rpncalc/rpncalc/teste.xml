@@ -1,0 +1,467 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>rpncalc</name>
+    </assembly>
+    <members>
+        <member name="M:MINIrpncalc.cPrograma.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:MINIrpncalc.foMINIrpncalc">
+            <summary>
+            formulário principal
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.WM_NCLBUTTONDOWN">
+            <summary>
+            Constantes para mover formulário
+            http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.nativemethods_members.aspx
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.HT_CAPTION">
+            <summary>
+            Constantes para mover formulário
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.stZ1">
+            <summary>
+            matriz para coluna das posições
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.stZ2">
+            <summary>
+            matriz para coluna dos valores
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.dt1">
+            <summary>
+            data table para passar valores para listview
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.dtset1">
+            <summary>
+            data set para passar valores para listview
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.foLi">
+            <summary>
+            declara formulário listas
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.cLi">
+            <summary>
+            abre instancia da classe lista
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.cFu">
+            <summary>
+            abre instancia da classe funções
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.#ctor">
+            <summary>
+            Programa Principal
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.tsSair_Click(System.Object,System.EventArgs)">
+            <summary>
+            Menu Sair
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.btLista_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Quando o mouse passar em cima abre formulário lista
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.tbL0_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            avalia o que é digitado
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.GetDataTableFromArray(System.Object[])">
+            <summary>
+            passa matriz para datatable
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            DLL do sistema para mover formulário Sends the specified message to one or more windows.
+            </summary>
+            <param name="hWnd">Type: System.IntPtr
+            The handle to the destination window
+            </param>         
+            <param name="Msg">Type: System.Int32
+            The specified message
+            </param>
+            <param name="wParam">wParamType: System.IntPtr
+            The first message parameter
+            </param>
+            <param name="lParam">lParamType: System.IntPtr
+            The second message parameter
+            </param>
+            <returns>Type: System.IntPtr</returns>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.ReleaseCapture">
+            <summary>
+            DLL do sistema para mover formulário 
+            </summary>
+            <returns>Nonzero indicates success. Zero indicates failure. To get extended error information, call GetLastError. </returns>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.btMove_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Evento do mouse clicado sobre o botão
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MINIrpncalc.foMINIrpncalc.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.tbL0">
+            <summary>
+            linha 0
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.tbL1">
+            <summary>
+            linha 1
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foMINIrpncalc.tbL3">
+            <summary>
+            linha 2
+            </summary>
+        </member>
+        <member name="P:MINIrpncalc.foMINIrpncalc.stPass1">
+            <summary>
+            string para passagem de valores entre os dois formulários 
+            </summary>
+        </member>
+        <member name="T:MINIrpncalc.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MINIrpncalc.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MINIrpncalc.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.cFunções.MapVirtualKey(System.UInt32,System.UInt32)">
+             <summary>
+             Identifica tecla apertada
+             
+             http://msdn.microsoft.com/pt-br/library/aa923118.aspx"
+             http://stackoverflow.com/questions/318777/c-how-to-translate-virtual-keycode-to-char
+             
+             <example>
+             <code>protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+                    {
+                        const int WM_KEYDOWN = 0x100;
+            
+                        if (msg.Msg == WM_KEYDOWN)
+                        {
+                            int nonVirtualKey = MapVirtualKey((uint)keyData, 2);// 2 para passar char se SHIFT 
+                            char mappedChar = Convert.ToChar(nonVirtualKey);
+                        }
+                        return this.ProcessCmdKey(ref msg, keyData);
+                    }
+             </code>
+             </example>
+             </summary>
+             <param name="uCode">uint lido http://msdn.microsoft.com/pt-br/library/aa926323.aspx </param>
+             <param name="uMapType">
+               /// <list type="table">
+                <listheader>
+                  <term>Valores</term>
+                  <description>Descrição</description>
+                </listheader>
+                <item>
+                  <term>0</term>
+                  <description>tudo</description>
+                </item> 
+                            <item>
+                  <term>1</term>
+                  <description>ignora esquerda direita</description>
+                </item> 
+                            <item>
+                  <term>2</term>
+                  <description>sem shift</description>
+                </item> 
+                        ///    <item>
+                  <term>3</term>
+                  <description>outro</description>
+                </item> 
+             </list>
+             </param>
+             <returns></returns>
+        </member>
+        <member name="F:MINIrpncalc.cFunções.foMINI1">
+            <summary>
+            Cria foMINIrpncalc para pegar localização
+            </summary>
+        </member>
+        <member name="T:MINIrpncalc.cLinhas">
+            <summary>
+            Manipula linhas
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.cLinhas.doLista">
+            <summary>
+            Declara Matrix da lista
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.cLinhas.uiTam">
+            <summary>
+            Tamanho da lista
+            
+            <list type="table">
+            <listheader>
+            <term>Help Page</term>
+            <description>Function to call</description>
+            </listheader>
+            <item><term>List of Types</term>
+            <description>GiveTypeListHTMLHelp</description></item>
+            <item><term>List of members</term>
+            <description>GiveMemberListHTMLHelp</description></item>
+            <item><term>Help for a single member</term>
+            <description>GiveMemberHTMLHelp</description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.#ctor">
+            <summary>
+            Construtor para dar tamanho da lista
+            
+             <value>
+            The SourceXML property contains the XML that will be used in
+            the transformations by the member functions for this class.
+            </value>
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.IniciaLinhas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.ComeValor(System.Double@)">
+            <summary>
+            Come valor
+            
+            <param name="do1">double 1</param>
+            <example>
+            <code>
+            case Keys.Multiply:
+                       cLi.ComeValor(out operand2);
+                       cLi.ComeValor(out operand1);
+                       cLi.Empurra(operand1 * operand2);
+                       //     atualiza();
+                       break;
+            </code>
+            </example>
+            
+            <remarks>
+                <table cellpadding="2">
+                    <tr style="font-size:xx-small"><th>Section</th><th>Block</th><th>Inline</th></tr>
+                    <tr align="center">
+                        <td><img src="../icons/ch_selected.gif"/></td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </table>
+                <b>Usage</b> <![CDATA[<remarks>...</remarks>]]><para/>
+                <note type="warning"> A best practice warning is issued when the summary tag has no content</note>
+            </remarks> 
+            
+            <returns>
+                Demonstrates the usage of <c>returns</c>
+            </returns> 
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.PrintStack">
+            <summary>
+            não usado
+            
+            <note>
+            <date>2008-01-10</date>
+            <to>Tove</to>
+            <from>Jani</from>
+            <heading>Reminder</heading>
+            <body>Don't forget me this weekend!</body>
+            </note>
+               The <c>para</c> tag works like <![CDATA[<br> or <p>]]> in html to
+               structure the text into paragraphs.<para/>It can be used to break a line
+               of continuous text, <para>or to wrap a segment of text into a paragraph.</para> 
+               </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.Empurra(System.Double)">
+             <summary>
+             Empura lista e cria novo item
+            
+             <param name="do1"></param>
+             
+             <list type="number">
+                <item>Bulleted List</item>
+                <item>Numbered List</item>
+                <item>Table</item>
+              </list>
+             
+             <list type="bullet">
+               <item>Bulleted List</item>
+               <item>Numbered List</item>
+               <item>Table</item>
+             </list>
+             
+             <list type="table">
+                <listheader>
+                  <term>List</term>
+                  <description>Description</description>
+                </listheader>
+                <item>
+                  <term>Bulleted List</term>
+                  <description>A bulleted list using discs as bullets</description>
+                </item> 
+             </list>
+              </summary>
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.LiVazia">
+            <summary>
+            caso lista vazia da tamanho 0
+            </summary>
+            <returns>
+            <c>uiTam == 0;</c>
+            </returns>
+            <exception cref="!:Exception::Error">
+                Thrown when an unrecoverable application error occurs.  A catch block should assume
+                that all database transactions in a transaction block have been halted and rolled back.
+            </exception>
+            <exception cref="!:Exception::Deadlock">
+                Thrown when a database transaction has deadlocked.
+            </exception> 
+        </member>
+        <member name="M:MINIrpncalc.cLinhas.LiCheia">
+            <summary>
+            caso lista cheia
+            </summary>
+            <returns>
+            <c>false</c>
+            </returns>
+        </member>
+        <member name="T:MINIrpncalc.foLista">
+            <summary>
+            Mostra lista
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foLista.WM_NCLBUTTONDOWN">
+            <summary>
+            constante para mover form
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foLista.HT_CAPTION">
+            <summary>
+            constante para mover form
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foLista.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foLista.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MINIrpncalc.foLista.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foLista.foMINI1">
+            <summary>
+            Cria foMINIrpncalc para pegar localização
+            </summary>
+        </member>
+        <member name="F:MINIrpncalc.foLista.dt2">
+            <summary>
+            Cria data table
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foLista.#ctor(MINIrpncalc.foMINIrpncalc)">
+            <summary>
+            construtor do form recebendo valores do foMINIrpncalc
+            </summary>
+            <param name="frm1"> formulário 1</param>
+        </member>
+        <member name="M:MINIrpncalc.foLista.btSair_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            botão
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MINIrpncalc.foLista.crialista">
+            <summary>
+            Funções
+            </summary>
+        </member>
+        <member name="M:MINIrpncalc.foLista.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            dll do sistema para mover form
+            </summary>
+            <param name="hWnd"><c>IntPtr</c> precisa do <c>using System;</c></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MINIrpncalc.foLista.ReleaseCapture">
+            <summary>
+            dll do sistema para mover form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MINIrpncalc.foLista.stPass2">
+            <summary>
+            Cria vinculo para passagem de valor para foMINIrpncalc
+            </summary>
+        </member>
+        <member name="P:MINIrpncalc.foLista.Form1">
+            <summary>
+            para vincular form1
+            </summary>
+        </member>
+    </members>
+</doc>

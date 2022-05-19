@@ -1,0 +1,725 @@
+﻿
+/*
+
+ *             //listView1.ItemssSource = dataTable.DefaultView;
+
+            crialista();
+            //dataGridView1.DataSource = dt2;
+/*
+            //listView1.Items.Add("Valor").SubItems.AddRange(instanciafrm1.stt2);
+            dt2 = EnumServices();
+
+            //create headers
+            foreach (DataColumn column in dt2.Columns)
+            {
+                listView_Services.Columns.Add(column.ColumnName);
+            }
+            foreach (DataRow row in dt2.Rows)
+            {
+                ListViewItem item = new ListViewItem(row[0].ToString());
+                for (int i = 1; i < data.Columns.Count; i++)
+                {
+                    item.SubItems.Add(row[i].ToString());
+                }
+                listView_Services.Items.Add(item);
+            }
+ *  
+ * */
+
+
+
+/*
+
+listView1.Items.Clear();
+
+    // Display items in the ListView control
+    for (int i = 0; i < dtable.Rows.Count; i++)
+    {
+        DataRow drow = dtable.Rows[i];
+
+        // Only row that have not been deleted
+        if (drow.RowState != DataRowState.Deleted)
+        {
+            // Define the list items
+            ListViewItem lvi = new ListViewItem(drow["title"].ToString());
+            lvi.SubItems.Add (drow["title_id"].ToString());
+            lvi.SubItems.Add (drow["price"].ToString());
+            lvi.SubItems.Add (drow["pubdate"].ToString());
+
+            // Add the list items to the ListView
+            listView1.Items.Add(lvi);
+        }
+    }
+*/
+
+/*
+ *    string[] array = new [] { "aaa", "bbb", "ccc" };
+        DataSet dataSet = array.ToDataSet();
+    }
+
+    private static DataSet ToDataSet(this string[] input)
+    {
+        DataSet dataSet = new DataSet();
+        DataTable dataTable = dataSet.Tables.Add();
+        dataTable.Columns.Add();
+        Array.ForEach(input, c => dataTable.Rows.Add()[0] = c);
+        return dataSet;
+    }
+*/
+
+
+
+/*
+**************
+private void fillListView(DataSet DS, ListView lv, string table)
+{
+DataTable dt = DS.Tables[table];
+int fc = dt.Columns.Count;
+
+lv.Columns.Clear();
+lv.Items.Clear();
+
+for (int i = 0; i < fc; i++)
+{
+lv.Columns.Add("Column " + i.ToString());
+}
+
+foreach (DataRow row in dt.Rows)
+{
+string[] subitems = new string[fc];
+
+object[] o = row.ItemArray;
+for (int i = 0; i < fc; i++)
+{
+subitems[i] = o[i].ToString();
+}
+ListViewItem item = new ListViewItem(subitems);
+lv.Items.Add(item);
+}
+
+lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.C olumnContent);
+}
+*/
+/*
+**************
+
+
+DataTable data = new DataTable();
+
+data = EnumServices();
+
+//create headers
+foreach (DataColumn column in data.Columns)
+    {
+      listView_Services.Columns.Add(column.ColumnName);
+    }
+foreach (DataRow row in data.Rows)
+{
+    ListViewItem item = new ListViewItem(row[0].ToString());
+    for (int i = 1; i < data.Columns.Count; i++)
+    {
+        item.SubItems.Add(row[i].ToString());
+    }
+    listView_Services.Items.Add(item);
+}
+
+
+**************
+*/
+/*
+
+internal static class Program
+{
+    private static void Main(string[] args)
+    {
+        string[] array = new [] { "aaa", "bbb", "ccc" };
+        DataSet dataSet = array.ToDataSet();
+    }
+
+    private static DataSet ToDataSet(this string[] input)
+    {
+        DataSet dataSet = new DataSet();
+        DataTable dataTable = dataSet.Tables.Add();
+        dataTable.Columns.Add();
+        Array.ForEach(input, c => dataTable.Rows.Add()[0] = c);
+        return dataSet;
+    }
+}
+
+**************
+*/
+/*
+ * Let us consider the important parts of the code:
+foreach(DataColumn c in ds.Tables[0].Columns)
+{
+ //adding names of columns as Listview columns
+ ColumnHeader();
+ h.Text=c.ColumnName;
+ h.Width=Convert.ToInt32(this.numericUpDown1.Value);
+ this.listView1.Columns.Add(h);
+}
+ * Post a comment
+ * Email Article
+ * Print Article
+ * Share Articles
+ o Digg
+ o del.icio.us
+ o Newsvine
+ o Facebook
+ o Google
+ o LinkedIn
+ o MySpace
+ o Reddit
+ o Slashdot
+ o StumbleUpon
+ o Technorati
+ o Twitter
+ o Windows Live
+ o YahooBuzz
+ o FriendFeed
+The above-mentioned code takes each column name from the query and adds it as the Listview Columns headers.
+DataTable dt=ds.Tables[0];
+string[] str=new string[ds.Tables[0].Columns.Count];
+//adding Datarows as listview Grids
+foreach(DataRow rr in dt.Rows)
+{
+ for(intcol=0;col<=this.ds.Tables[0].Columns.Count-1;col++)
+ {
+ str[col]=rr[col].ToString();
+ }
+ ListViewItem ii;
+ ii=new ListViewItem(str);
+ this.listView1.Items.Add(ii);
+}
+The preceding code snippet is a very important part of the code. We declare an array string equal to the numbers of columns, and then we fill this array with the help of a counter loop, using a foreach loop to ensure that each row has been filled. So, using this basic ideas control was ready to serve me.
+However, when I used it with complex queries—for example, with 8 inner joins having more than 60,000 records—it hung and did not respond, so I had to restart my system.
+Then, I decided to use my programming servants (threads) to share my burden after initializing a thread loaded with database querying. Hurrah!! I was jubilant now because I did not have to restart my system and even I could see adding records to the listview as smoothly as was a simple query. Thanks, threads (my friends now).
+//check if thread is allow to run
+if(this.runThread)
+{
+ ThreadStart ts=new ThreadStart(this.FillMethod);
+ Thread t=new Thread(ts);
+ t.Start()
+}
+This is very basic way of initializing a thread and passing it the reference of the method to be called.
+So, enjoy the code.
+ * */
+/*
+ * Storyboard storyboard = new Storyboard();
+TimeSpan duration = TimeSpan.FromMilliseconds(500); //
+DoubleAnimation fadeInAnimation = new DoubleAnimation() 
+ { From = 0.0, To = 1.0, Duration = new Duration(duration) };
+DoubleAnimation fadeOutAnimation = new DoubleAnimation()
+ { From = 1.0, To = 0.0, Duration = new Duration(duration) };
+fadeOutAnimation.BeginTime = TimeSpan.FromSeconds(5);
+Storyboard.SetTargetName(fadeInAnimation, element.Name);
+Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath("Opacity", 1));
+storyboard.Children.Add(fadeInAnimation);
+storyboard.Begin(element);
+Storyboard.SetTargetName(fadeOutAnimation, element.Name);
+Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath("Opacity", 0));
+storyboard.Children.Add(fadeOutAnimation);
+storyboard.Begin(element);
+*/
+/*
+ * C# Mouse Events
+You will need only two C# mouse events, MouseEnter and MouseLeave. To call the Fade In and Fade Out C# functions, you will need this simple source code:
+ThreadStart fadeInStart = new ThreadStart(FadeIn);
+fadeIn = new Thread(fadeInStart);
+fadeIn.Start();
+Of course for the Fade Out function replace the FadeIn part.
+There is one small problem. The Form's MouseLeave event will be fired when the cursor "leaves" the C# Form by "entering" another control, even though it is inside the Form. The simple work around is to add the following C# code at the beginning of the MouseLeave event:
+if (this.Bounds.Contains(Cursor.Position)) return;
+ * */
+/*
+ * private void timer1_Tick(object sender, EventArgs e)
+{
+ listBox1.Items.Add(DateTime.Now.ToLongTimeString() + "," + DateTime.Now.ToLongDateString());
+}
+Run-time
+Timer class represents a Timer control and used to create a Timer at run-time. The following code snippet creates a Timer at run-time, sets its property and event handler.
+Timer t = new Timer();
+t.Interval = 2000;
+timer1.Enabled = true;
+timer1.Tick += new System.EventHandler(OnTimerEvent);
+The event handler code looks like following.
+private void OnTimerEvent(object sender, EventArgs e)
+{
+ listBox1.Items.Add(DateTime.Now.ToLongTimeString() + "," + DateTime.Now.ToLongDateString());
+}
+ * */
+/*
+ * 1.
+ public void InGameCrowdScreenshots(int numScreenshots)
+ 2.
+ {
+ 3.
+ timer1.Enabled = true;
+ 4.
+ while(numSS <= numScreenshots)
+ 5.
+ { }
+ 6.
+ print("Complete");
+ 7.
+ }
+public void InGameCrowdScreenshots(int numScreenshots) { timer1.Enabled = true; while(numSS <= numScreenshots) { } print("Complete"); }
+and here's the onTick
+C# Syntax (Toggle Plain Text)
+ 1.
+ private void timer1_Tick(object sender, System.EventArgs e)
+ 2.
+ {
+ 3.
+ if(sender == timer1)
+ 4.
+ {
+ 5.
+ TakeConsoleScreenShot();
+ 6.
+ numSS++;
+ 7.
+ if(numSS >= 10)
+ 8.
+ timer1.Stop();
+ 9.
+ }
+ 10.
+ }
+ * */
+/*
+here is my code :
+Program.cs:
+static class Program
+{
+ public static Timer timer;
+ [STAThread]
+ static void Main()
+ {
+ Application.EnableVisualStyles();
+ Application.SetCompatibleTextRenderingDefault(false);
+ timer = new Timer { Interval = 1000};
+ timer.Start();
+ Application.Run(new Form1());
+ }
+}
+Form1.cs:
+public partial class Form1 : Form
+{
+ public Form1()
+ {
+ InitializeComponent();
+ }
+ private void button1_Click(object sender, EventArgs e)
+ {
+ Form2 form = new Form2();
+ form.ShowDialog();
+ /// I've tried Dispose() method . but didn't work
+ }
+}
+Form2.cs:
+public partial class Form2 : Form
+{
+ public Form2()
+ {
+ InitializeComponent();
+ }
+ private void Form2_Load(object sender, EventArgs e)
+ {
+ Program.timer.Tick += timer_Tick; 
+ Close();
+ // I've tried Dispose() method instead of Close() but didn't work
+ }
+ private int count = 0; 
+ void timer_Tick(object sender, EventArgs e)
+ {
+ count++;
+ if (count == 5) MessageBox.Show("");
+ }
+}
+Edited : My question is : why
+ * */
+/*
+ OK, part 1:
+A using () {} block would be better but this should work:
+ private void button1_Click(object sender, EventArgs e)
+ {
+ Form2 form = new Form2();
+ form.ShowDialog();
+ /// I've tried Dispose() method . but didn't work
+ form.Dispose(); // should work
+ }
+If not, please describe "doesn't work".
+ private void Form2_Load(object sender, EventArgs e)
+ {
+ Program.timer.Tick += timer_Tick; 
+ Close();
+ /// I've tried Dispose() method instead of Close() . but didn't work
+ }
+This is strange, but I'll assume that it is artifical code for the question.
+Your global Program.Timer now stores a reference to your Form2 instance and will keep it from being collected. It does not prevent it from being Disposed/Close so your timer will keep firing for a Closed Form, and that will usually fail and cause other problems.
+ 1. Don't do this (give Form2 it's own timer)
+ 2. Use a FormClosed event to unsubscribe: Program.timer.Tick -= timer_Tick;
+ */
+/*
+down vote
+The simplest and most reliable way to dispose a Form after using is to put the usage inside of a using block
+using (Form2 form = new Form2()) {
+ form.ShowDialog();
+}
+The using block in C# is a construct that essentially expands the above into the following code.
+Form2 form;
+try {
+ form = new Form2(); 
+ ...
+} finally {
+ if ( form != null ) {
+ form.Dispose();
+ }
+}
+ */
+/*
+Private Shared tmr As New System.Timers.Timer 
+aForm.Show()
+tmr = New System.Timers.Timer(aSleep * 60 * 60)
+tmr.Enabled = True
+aForm.Close()
+*/
+/*
+ Public Class Form1
+ Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+ Form2.Timer1.Interval = 2000
+ Form2.Show()
+ End Sub
+End Class
+Public Class Form2
+ Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+ 'Do initialization stuff for your form...
+ 'Start your timer last.
+ Timer1.Start()
+ End Sub
+ Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+ Me.Close()
+ End Sub
+End Class
+*/
+/*
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Drawing;
+namespace OgameChecker.Library
+{
+ class TrayHelper
+ {
+ Timer trayTimer;
+ public delegate void MouseInDelegate(object sender, MouseEventArgs e);
+ public delegate void MouseOutDelegate();
+ public MouseInDelegate mouseInDelegate;
+ public MouseOutDelegate mouseOutDelegate;
+ public TrayHelper(NotifyIcon icon)
+ {
+ trayTimer = new Timer();
+ trayTimer.Interval = 100;
+ trayTimer.Enabled = false;
+ icon.MouseMove += new MouseEventHandler(icon_MouseMove);
+ trayTimer.Tick += new EventHandler(trayTimer_Tick);
+ }
+ void icon_MouseMove(object sender, MouseEventArgs e)
+ {
+ trayTimer.Start();
+ mouseInDelegate(sender, e);
+ }
+ void trayTimer_Tick(object sender, EventArgs e)
+ {
+ if(!WinAPI.GetTrayRectangle().Contains(Cursor.Position))
+ {
+ trayTimer.Stop();
+ mouseOutDelegate();
+ }
+ }
+ }
+}
+public class WinAPI
+{
+ public struct RECT
+ {
+ public int left;
+ public int top;
+ public int right;
+ public int bottom;
+ public override string ToString()
+ {
+ return "(" + left + ", " + top + ") --> (" + right + ", " + bottom + ")";
+ }
+ }
+ [DllImport("user32.dll", CharSet=CharSet.Auto)]
+ public static extern IntPtr FindWindow(string strClassName, string strWindowName);
+ [DllImport("user32.dll", SetLastError = true)]
+ public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, IntPtr windowTitle);
+ [DllImport("user32.dll")]
+ [return: MarshalAs(UnmanagedType.Bool)]
+ static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+ public static IntPtr GetTrayHandle()
+ {
+ IntPtr taskBarHandle = WinAPI.FindWindow("Shell_TrayWnd", null);
+ if(!taskBarHandle.Equals(IntPtr.Zero))
+ {
+ return WinAPI.FindWindowEx(taskBarHandle, IntPtr.Zero, "TrayNotifyWnd", IntPtr.Zero);
+ }
+ return IntPtr.Zero;
+ }
+ public static Rectangle GetTrayRectangle()
+ {
+ WinAPI.RECT rect;
+ WinAPI.GetWindowRect(WinAPI.GetTrayHandle(), out rect);
+ return new Rectangle(new Point(rect.left, rect.top), new Size((rect.right - rect.left) + 1, (rect.bottom - rect.top) + 1));
+ }
+}
+*/
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace rpncalc
+{
+    class Class1
+    {
+    }
+}
+
+using System;
+using System.Collections.Generic;
+
+class Rpn  {
+  public static void Main()  {
+    char [] sp = new char [] {' ','\t'};
+    for (;;)  {
+      string s = Console.ReadLine();
+      if (s==null)  break;
+      Linhas<string> tks = new Stack<string>
+           (s.Split(sp,StringSplitOptions.RemoveEmptyEntries));
+      if (tks.Count==0)  continue;
+      try  {
+        double r = evalrpn(tks);
+        if (tks.Count!=0)  throw new Exception();
+        Console.WriteLine(r);
+      }
+      catch (Exception e) {Console.WriteLine("error");}
+    }
+  }
+
+  private static double evalrpn(Stack<string> tks)  {
+    string tk = tks.Pop();
+    double x,y;
+    if (!Double.TryParse(tk, out x))  {
+      y = evalrpn(tks);  x = evalrpn(tks);
+      if      (tk=="+")  x += y;
+      else if (tk=="-")  x -= y;
+      else if (tk=="*")  x *= y;
+      else if (tk=="/")  x /= y;
+      else throw new Exception();
+    }
+    return x;
+  }
+}
+
+
+
+   1.
+      Stack<int> numbers = new Stack<int>();
+   2.
+      int x = numbers.Pop();
+   3.
+      int y = 5;
+   4.
+      number.Push(y);
+
+form1.Text = ""; form1.ControlBox = false;
+this.FormBorderStyle = System.Windows.Forms.FormsBorderStyle.None;
+FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+this.ControlBox = false;
+this.Text = string.Empty;
+this.ShowInTaskBar = false;
+
+
+I have some (very) old code I think somehow related; I'd to display Microsoft Excel inside a winform application:
+
+[DllImport("user32.dll")]
+public static extern int FindWindow(string lpClassName, string lpWindowName);
+
+[DllImport("user32.dll")]
+public static extern int SetParent(int hWndChild, int hWndNewParent);
+
+[DllImport("user32.dll")]
+public static extern int MoveWindow(
+    int hWnd, int x, int y, 
+    int nWidth, int nHeight, int bRepaint);
+
+//
+private static int hwnExcel = 0;
+private System.Windows.Forms.PictureBox picContainer;
+// ...
+private void Principal_Resize(object sender, EventArgs e)
+{
+    picContainer.Width = this.Width - 8;
+    picContainer.Height = this.Height - 45;
+    User32.SetParent(hwnExcel, 0);
+    User32.MoveWindow(
+        hwnExcel, 0, 0, 
+        picContainer.Width, picContainer.Height, 1);
+}
+
+
+
+
+
+//, INotifyPropertyChanging, INotifyPropertyChanged
+// public delegate d1 = 
+// public event =
+//textBox1.Text = fm2.f1;
+// MessageBox.Show("teste");
+//this.Enabled = false;
+//textBox1.Text = s1;
+/*
+ou need to use properties and you can. Here is an example class:
+C# Syntax (Toggle Plain Text)
+ using System;
+ using System.Collections.Generic;
+ using System.Linq;
+ using System.Text;
+ using System.ComponentModel;
+ namespace daniweb
+ {
+ public class SomeClass : INotifyPropertyChanging, INotifyPropertyChanged
+ {
+ private string _name;
+ private int _weight;
+ public string Name
+ {
+ get { return _name; }
+ set
+ {
+ if (_name != value)
+ {
+ SendPropertyChanging("Name");
+ _name = value;
+ SendPropertyChanged("Name");
+ }
+ }
+ }
+ public int Weight
+ {
+ get { return _weight; }
+ set
+ {
+ if (_weight != value)
+ {
+ SendPropertyChanging("Weight");
+ _weight = value;
+ SendPropertyChanged("Weight");
+ }
+ }
+ }
+ private void SendPropertyChanging(string property)
+ {
+ if (this.PropertyChanging != null)
+ {
+ this.PropertyChanging(this, new PropertyChangingEventArgs(property));
+ }
+ }
+ private void SendPropertyChanged(string property)
+ {
+ if (this.PropertyChanged != null)
+ {
+ this.PropertyChanged(this, new PropertyChangedEventArgs(property));
+ }
+ }
+ public SomeClass()
+ {
+ }
+ #region INotifyPropertyChanging Members
+ public event PropertyChangingEventHandler PropertyChanging;
+ #endregion
+ #region INotifyPropertyChanged Members
+ public event PropertyChangedEventHandler PropertyChanged;
+ #endregion
+ }
+ }
+using System; using System.Collections.Generic; using System.Linq; using System.Text; using System.ComponentModel; namespace daniweb { public class SomeClass : INotifyPropertyChanging, INotifyPropertyChanged { private string _name; private int _weight; public string Name { get { return _name; } set { if (_name != <strong class="highlight">value</strong>) { SendPropertyChanging("Name"); _name = <strong class="highlight">value</strong>; SendPropertyChanged("Name"); } } } public int Weight { get { return _weight; } set { if (_weight != <strong class="highlight">value</strong>) { SendPropertyChanging("Weight"); _weight = <strong class="highlight">value</strong>; SendPropertyChanged("Weight"); } } } private void SendPropertyChanging(string property) { if (this.PropertyChanging != null) { this.PropertyChanging(this, new PropertyChangingEventArgs(property)); } } private void SendPropertyChanged(string property) { if (this.PropertyChanged != null) { this.PropertyChanged(this, new PropertyChangedEventArgs(property)); } } public SomeClass() { } #region INotifyPropertyChanging Members public event PropertyChangingEventHandler PropertyChanging; #endregion #region INotifyPropertyChanged Members public event PropertyChangedEventHandler PropertyChanged; #endregion } }
+Calling it:
+C# Syntax (Toggle Plain Text)
+ private void button2_Click(object sender, EventArgs e)
+ {
+ SomeClass sc = new SomeClass();
+ sc.PropertyChanging += new PropertyChangingEventHandler(sc_PropertyChanging);
+ sc.PropertyChanged += new PropertyChangedEventHandler(sc_PropertyChanged);
+ sc.Name = "Daniweb";
+ sc.Weight = int.MaxValue;
+ }
+ void sc_PropertyChanged(object sender, PropertyChangedEventArgs e)
+ {
+ Console.WriteLine(e.PropertyName + " is changing");
+ }
+ void sc_PropertyChanging(object sender, PropertyChangingEventArgs e)
+ {
+ Console.WriteLine(e.PropertyName + " has been changing");
+ }
+private void button2_Click(object sender, EventArgs e) { SomeClass sc = new SomeClass(); sc.PropertyChanging += new PropertyChangingEventHandler(sc_PropertyChanging); sc.PropertyChanged += new PropertyChangedEventHandler(sc_PropertyChanged); sc.Name = "Daniweb"; sc.Weight = int.MaxValue; } void sc_PropertyChanged(object sender, PropertyChangedEventArgs e) { Console.WriteLine(e.PropertyName + " is changing"); } void sc_PropertyChanging(object sender, PropertyChangingEventArgs e) { Console.WriteLine(e.PropertyName + " has been changing"); }
+Results in:
+C# Syntax (Toggle Plain Text)
+ Name has been changing
+ Name is changing
+ Weight has been changing
+ Weight is changing
+*/
+/*
+public void ClearAllControls(Control Parent)
+        {
+            foreach (Control Child in Parent.Controls)
+            {
+                if (Child.HasControls())
+                    ClearAllControls(Child);
+                else
+                {
+                    if (Child.GetType() == typeof(TextBox))
+                        ((TextBox)Child).Text = "";
+                }
+            }
+        }
+*/
+
+
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+// listView1.DataBindings = stack.elements;
+//dataGridView1.DataSource = dt1;
+// Array.ForEach(stt1, c => dataTable.Rows.Add()[0] = c);
+//Array.ForEach(stt2, c => dataTable.Rows.Add()[1] = c);
+// listView1.Items.Add("Valor").SubItems.AddRange(stt2);
+//ListViewItem[] lvItem = new ListViewItem[stack.top];
+// string itemField = itemCollection[0].SubItems[0];
+//ListViewItem lvItem = new ListViewItem();
+//lvItem = stt;
+//string itemField = ((string [])itemCollection[0])[0];
+//listView1.Items.AddRange(new ListViewItem[] {lvItem});
+//listView1.Items.AddRange(stack.elements[]);;
+//textBox1.Dispose();
+//    textBox1.Clear();
+//ListViewItem lvItem = new ListViewItem[];
+//this.Enabled = false;
+// private void button4_Click(object sender, EventArgs e)
+//  {
+//      cCalc cc1 = new cCalc();
+//      cc1.calc(tbL0.Text);
+//  }

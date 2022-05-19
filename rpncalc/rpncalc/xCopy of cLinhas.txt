@@ -1,0 +1,186 @@
+﻿using System; // array
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+namespace MINIrpncalc
+{
+    /// <summary>
+    /// Manipula linhas
+    /// </summary>
+    public class cLinhas
+    {
+        /// <summary>
+        /// Declara Matrix da lista
+        /// </summary>
+        public double[] doLista;
+        /// <summary>
+        /// Tamanho da lista
+        /// 
+        /// <list type="table">
+        /// <listheader>
+        /// <term>Help Page</term>
+        /// <description>Function to call</description>
+        /// </listheader>
+        /// <item><term>List of Types</term>
+        /// <description>GiveTypeListHTMLHelp</description></item>
+        /// <item><term>List of members</term>
+        /// <description>GiveMemberListHTMLHelp</description></item>
+        /// <item><term>Help for a single member</term>
+        /// <description>GiveMemberHTMLHelp</description></item>
+        /// </list>
+        /// </summary>
+        public uint uiTam;
+
+        /// <summary>
+        /// Construtor para dar tamanho da lista
+        /// 
+        ///  <value>
+        /// The SourceXML property contains the XML that will be used in
+        /// the transformations by the member functions for this class.
+        /// </value>
+        /// </summary>
+        public cLinhas()
+        {
+            doLista = new double[1];
+            uiTam = 0;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void IniciaLinhas()
+        {
+            Array.Resize(ref doLista, 1);
+            doLista[0] = 0.0;
+            uiTam = 0;
+        }
+        /// <summary>
+        /// Come valor
+        /// 
+        /// <param name="do1"></param>
+        /// <example>
+        /// <code>
+        /// case Keys.Multiply:
+        ///            cLi.ComeValor(out operand2);
+        ///            cLi.ComeValor(out operand1);
+        ///            cLi.Empurra(operand1 * operand2);
+        ///            //     atualiza();
+        ///            break;
+        /// </code>
+        /// </example>
+        /// 
+        /// <remarks>
+        ///     <table cellpadding="2">
+        ///         <tr style="font-size:xx-small"><th>Section</th><th>Block</th><th>Inline</th></tr>
+        ///         <tr align="center">
+        ///             <td><img src="../icons/ch_selected.gif"/></td>
+        ///             <td> </td>
+        ///             <td> </td>
+        ///         </tr>
+        ///     </table>
+        ///     <b>Usage</b> <![CDATA[<remarks>...</remarks>]]><para/>
+        ///     <note type="warning"> A best practice warning is issued when the summary tag has no content</note>
+        /// </remarks> 
+        /// 
+        /// <returns>
+        ///     Demonstrates the usage of <c>returns</c>
+        /// </returns> 
+        /// </summary>
+        public void ComeValor(out double do1)
+        {
+            uiTam--;
+            do1 = doLista[uiTam];
+            Array.Resize(ref doLista, doLista.Length - 1);
+        }
+        /// <summary>
+        /// não usado
+        /// 
+        /// <note>
+        /// <date>2008-01-10</date>
+        /// <to>Tove</to>
+        /// <from>Jani</from>
+        /// <heading>Reminder</heading>
+        /// <body>Don't forget me this weekend!</body>
+        /// </note>
+        ///    The <c>para</c> tag works like <![CDATA[<br> or <p>]]> in html to
+        ///    structure the text into paragraphs.<para/>It can be used to break a line
+        ///    of continuous text, <para>or to wrap a segment of text into a paragraph.</para> 
+        ///    </summary>
+        public void PrintStack()
+        {
+            System.Console.WriteLine("Stack Top");
+            if (LiVazia())
+                System.Console.WriteLine("The stack is empty.");
+            else
+            {
+                for (int ii = (int)uiTam - 1; ii >= 0; ii--)
+                {
+                    System.Console.Write("elements[" + ii + "] = ");
+                    System.Console.WriteLine(doLista[ii]);
+                }
+            }
+            System.Console.WriteLine("Stack Bottom");
+            System.Console.WriteLine();
+        }
+        /// <summary>
+        /// Empura lista e cria novo item
+        ///
+        /// <param name="do1"></param>
+        /// 
+        /// <list type="number">
+        ///    <item>Bulleted List</item>
+        ///    <item>Numbered List</item>
+        ///    <item>Table</item>
+        ///  </list>
+        /// 
+        /// <list type="bullet">
+        ///   <item>Bulleted List</item>
+        ///   <item>Numbered List</item>
+        ///   <item>Table</item>
+        /// </list>
+        /// 
+        /// <list type="table">
+        ///    <listheader>
+        ///      <term>List</term>
+        ///      <description>Description</description>
+        ///    </listheader>
+        ///    <item>
+        ///      <term>Bulleted List</term>
+        ///      <description>A bulleted list using discs as bullets</description>
+        ///    </item> 
+        /// </list>
+        ///  </summary>
+        public void Empurra(double do1)
+        {
+            Array.Resize(ref doLista, doLista.Length + 1);
+            doLista[uiTam] = do1;
+            uiTam++;
+        }
+        /// <summary>
+        /// caso lista vazia da tamanho 0
+        /// </summary>
+        /// <returns>
+        /// <c>uiTam == 0;</c>
+        /// </returns>
+        /// <exception cref="Exception::Error">
+        ///     Thrown when an unrecoverable application error occurs.  A catch block should assume
+        ///     that all database transactions in a transaction block have been halted and rolled back.
+        /// </exception>
+        /// <exception cref="Exception::Deadlock">
+        ///     Thrown when a database transaction has deadlocked.
+        /// </exception> 
+        public bool LiVazia()
+        {
+            return uiTam == 0;
+        }
+        /// <summary>
+        /// caso lista cheia
+        /// </summary>
+        /// <returns>
+        /// <c>false</c>
+        /// </returns>
+        public bool LiCheia()
+        {
+            return false;
+        }
+    }
+}
